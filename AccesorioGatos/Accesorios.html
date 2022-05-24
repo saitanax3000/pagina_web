@@ -50,11 +50,9 @@
 				href="../Index.html">Volver al Inicio
 			</a>
 		</ul>
-
 		<div class="navbar-collapse collapse justify-content-between"></div>
 		<ul>
-			<a style="background-color:green; color:white;" type="button" class="btn" rola="button"
-				href="../CarritodeCompras.html">Carrito</a>
+			<a style="background-color:green; color:white;" id ="pagar" type="button" class="btn button-checkout" rola="button" onclick="pay()">Pagar</a>
 		</ul>
 	</nav>
 	<!--Carrusel de imagenes-->
@@ -98,11 +96,19 @@
 							<li>28,5 cm máximo - 17 cm.</li>
 							<li>Collar cascabel reflectante ideal para que tu gatito se vea de noche y de día se note
 								con colores vivos.</li>
-
+						</p>
 						</ul>
 						</p>
-						<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
-							href="../CarritodeCompras.html">Agregar al Carrito</a>
+						<div class="row justify-content-between">
+							<div class="col">
+								<a style="background-color:royalblue; color:white" type="button" onclick="añadir('Collar', 4990)" class=" btn button-add">Agregar al Carrito</a>
+							</div>
+							<div class="col-4">
+								<h4>
+									<div class="col badge bg-success text-wrap">$ 4.990</div>
+								</h4>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -118,10 +124,18 @@
 							<li>Caracterizado por una altura adecuada y la base inclinada.</li>
 							<li>Antideslizante: Mantiene los cuencos estables en el suelo</li>
 							<li>Protege eficazmente el cuello.</li>
-						</ul>
 						</p>
-						<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
-							href="../CarritodeCompras.html">Agregar al Carrito</a>
+						</ul>
+						<div class="row justify-content-between">
+							<div class="col">
+								<a style="background-color:royalblue; color:white" type="button" onclick="añadir('Plato Anti deslisante', 9990)" class=" btn button-add">Agregar al Carrito</a>
+							</div>
+							<div class="col-4">
+								<h4>
+									<div class="col badge bg-success text-wrap">$ 9.990</div>
+								</h4>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -138,8 +152,16 @@
 							<li>Fácil de armar y limpiar.</li>
 							</p>
 						</ul>
-						<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
-							href="../CarritodeCompras.html">Agregar al Carrito</a>
+						<div class="row justify-content-between">
+							<div class="col">
+								<a style="background-color:royalblue; color:white" type="button" onclick="añadir('Caja transportadora', 6990)" class=" btn button-add">Agregar al Carrito</a>
+							</div>
+							<div class="col-4">
+								<h4>
+									<div class="col badge bg-success text-wrap">$ 6.990</div>
+								</h4>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -175,6 +197,7 @@
 		</div>
 	</div>
 	</div>
+	<script src="../js/tienda_api.js"></script>
 </body>
 
 </html>
