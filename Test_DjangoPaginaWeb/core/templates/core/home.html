@@ -49,8 +49,7 @@
 		</div>
 	</header>
 	<!-- Nav Bar-->
-	<nav class=" sticky-top topvar container-fluid navbar  navbar-light navbar-expand-lg"
-		style="background-color:white">
+	<nav class=" sticky-top topvar container-fluid navbar bg-light navbar-expand-lg">
 		<div class="navbar-collapse collapse justify-content-center"></div>
 		<ul>
 			<a class="navbar-brand" href="#">
@@ -66,6 +65,7 @@
 			<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
 				href="{% url 'accesoriosperros' %}">Perros
 			</a>
+            
 		</ul>
 		<div class="navbar-collapse collapse justify-content-end"></div>
 		<ul>
@@ -74,36 +74,50 @@
 			</a>
 		</ul>
 	</nav>
-
-
-
-	<!--Carrusel de imagenes-->
-	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="Imagenes_Index/banner_1.png" class="d-block w-100" alt="Imagen_1">
-			</div>
-			<div class="carousel-item">
-				<img src="Imagenes_Index/banner_2.png" class="d-block w-100" alt="Imagen_2">
-			</div>
-			<div class="carousel-item">
-				<img src="Imagenes_Index/banner_3.png" class="d-block w-100" alt="Imagen_3">
-			</div>
-			<div class="carousel-item">
-				<img src="Imagenes_Index/banner_4.png" class="d-block w-100" alt="Imagen_4">
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-			data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-			data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
-	</div>
+	<!--carrusel-->
+    <div class="container mt-2 mb-4">
+        <div id="carouselHome" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'core/img/imagenes_index/banner_oferta.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/imagenes_index/banner_1.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/imagenes_index/banner_2.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/imagenes_index/banner_3.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'core/img/imagenes_index/banner_4.png' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselHome"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 	&nbsp
 	<!--Tarjetas-->
 	<div class="container-fluid" style="background-color:white ">
@@ -111,7 +125,7 @@
 			<div class="col-sm-3">
 				<div class="card">
 					<div class="card-body">
-						<img src="Imagenes_Index/tarjeta_1.png" class="card-img-top" alt="tarjeta_1">
+						<img src="{% static 'core/img/imagenes_index/tarjeta_1.png' %}" class="card-img-top" alt="tarjeta_1">
 						<h5 class="card-title">Gatos</h5>
 						<p class="card-text">Entra y conoce nuestros mejores productos para los felinos del hogar.</p>
 						<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
@@ -122,7 +136,7 @@
 			<div class="col-sm-3">
 				<div class="card ">
 					<div class="card-body">
-						<img src="Imagenes_Index/tarjeta_2.png" class="card-img-top" alt="tarjeta_2">
+						<img src="{% static 'core/img/imagenes_index/tarjeta_2.png' %}" class="card-img-top" alt="tarjeta_2">
 						<h5 class="card-title">Perros</h5>
 						<p class="card-text">Entra y conoce nuestros mejores productos para nuestros caninos.</p>
 						<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
