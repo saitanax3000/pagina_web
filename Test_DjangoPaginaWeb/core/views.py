@@ -16,8 +16,10 @@ def carritodecompras (request):
 	return  render (request, 'core/carritodecompras.html')
 
 def accesoriosperros (request):
-	return  render (request, 'core/accesoriosperros.html')
+	context = {'accesoriosperros':accesorio.objects.all()}
+	return  render (request, 'core/accesoriosperros.html', context)
 
 def accesoriosgatos (request):
-	return  render (request, 'core/accesoriosgatos.html')
+	context = {'accesoriosgatos':accesorio.objects.all()}
+	return  render (request, 'core/accesoriosgatos.html', context)
 
