@@ -1,0 +1,128 @@
+{% extends 'crud/base.html' %}
+
+{% load static %}
+
+{% block title %}Listado Productos{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-2 text-center bg-dark text-white py-5 rounded">
+    <h1>Listado Productos</h1>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-2 mx-auto text-center">
+            <a class="fs-1" href="{% url 'product-new' %}">
+                <i class="fa-solid fa-file-circle-plus"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container mt-2 mb-2">
+    {% if 'OK' in request.GET %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Hola Terricola</strong> Producto ingresado satisfactoriamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% if 'FAIL' in request.GET %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Hola Terricola</strong> No se pudo completar la acción. Inténtelo nuevamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% if 'SUCCESS' in request.GET %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Hola Terricola</strong> Producto actualizado satisfactoriamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% if 'DELETED' in request.GET %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Hola Terricola</strong> Producto eliminado satisfactoriamente.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+</div>
+
+<div class="container-fluid mt-2 mb-2">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Precio Unitario</th>
+                <th>Stock</th>
+                <th>Marca</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in productos %}
+            <tr>
+                <td>{{p.idProducto}}</td>
+                <td>{{p.descripcion}}</td>
+                <td>{{p.precio_unitario}}</td>
+                <td>{{p.stock}}</td>
+                <td>
+                    <a href="/crud/marca/{{p.marca.id}}">{{p.marca}}</a>
+                </td>
+                <td>
+                    {% if p.imagen %}
+                    <img class="img-table" src="{{p.imagen.url}}" alt="{{p.idProducto}}">
+                    {% else %}
+                    <img class="img-table" src="{% static 'crud/img/img_not_found.png' %}" alt="Not found">
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark" href="/crud/{{p.idProducto}}">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a class="btn btn-outline-dark" href="/crud/{{p.idProducto}}/edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a class="btn btn-outline-dark modal-borrar" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                        data-href="{% url 'product-delete' p.idProducto  %}">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Mensajes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Estas seguro que deseas eliminar el producto seleccionado.<br>Esta acción no se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <a id="confirmar-borrar" class="btn btn-success" href="#">Si</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function() {
+        const href = $(this).attr('data-href');
+        $('#confirmar-borrar').attr('href',href);
+    })
+</script>
+{% endblock %}

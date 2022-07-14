@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
+from crud import views as crud
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('crud/',include('crud.urls')),

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,73 +9,39 @@
 
 </head>
 
-<body onload="onLoad()">
-	<!-- Titulo -->
-	<header>
-		<h4 align="center" style="color:rgb(0, 0, 0);">Productos Hasta 50% de Dcto. </h4>
-		<div class="container-fluid text-white" style="background-color:royalblue">
-			<div class="row align-items-between">
-				<div class="col align-self-start">
-					<h1 style="color: white;">
-						<img src="https://cdn-icons-png.flaticon.com/512/21/21645.png" width="130" height="130">
-						Gatos
-					</h1>
-				</div>	
-				<div class="col-4 badge bg-warning text-wrap">
-					<h5 style="color: black; text-align: right;">
-						<div id="loader" class="loader">Cargando...</div>
-						<div id="container" class="contaier">
-							<div class="col block">
-								<div id="location"></div>
-								<div id="date"></div>
-								<div id="description"></div>
-							</div>
-								<ul>
-									Temperatura
-									<div class="information" id="temperature"></div>
-								</ul>
-								<ul>
-									Humedad
-									<div class="information" id="humidity"></div>
-								</ul>
-								<ul>
-									Presión 
-									<div class="information" id="pressure"></div>
-								</ul>
-						</div>
-					</h5>
+<body onload="onLoad()" class="bg-dark">
+	<!--INICIO Seccion NAVBAR-->
+    <nav class="sticky-top navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}" style="color: white;"> Tienda Pelu2
+                <img class="img-logo" src="https://cdn-icons-png.flaticon.com/512/21/21645.png" width="90" height="90" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-left" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+						<a class="btn btn-danger me-2" type="button" 
+							href="{% url 'colaboradores' %}">Colabora con Nosotros
+						</a>
+						<a class="btn btn-outline-light me-2" type="button"
+							href="{% url 'accesoriosperros' %}">Perros
+						</a>
+						<a class="btn btn-outline-light me-2" type="button"
+							href="{% url 'home' %}">Volver al Inicio
+						</a>
+            	</div>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a style="background-color:green; color:white;" id="pagar" type="button" class="btn button-checkout"
+						rola="button" onclick="pay()">Pagar</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</header>
-	<!-- Nav Bar-->
-	<nav class=" sticky-top topvar container-fluid navbar bg-light navbar-expand-lg">
-		<div class="navbar-collapse collapse justify-content-center"></div>
-		<ul>
-			<a class="navbar-brand" href="#">
-				<img src="https://cdn-icons-png.flaticon.com/512/21/21645.png" alt="Avatar Logo" style="width:40px;"
-					class="rounded-pill">
-			</a>
-			<a style="background-color:red; color:white;" type="button" class="btn" rola="button"
-				href="{% url 'colaboradores' %}">Colabora con Nosotros
-			</a>
-
-			<a style="background-color:royalblue; color:white" type="button" class="btn" rola="button"
-				href="{% url 'accesoriosperros' %}">Perros
-			</a>
-
-			<a style="background-color:royalblue ; color:white;" type="button" class="btn" rola="button"
-				href="{% url 'home' %}">Volver al Inicio
-			</a>
-		</ul>
-		<div class="navbar-collapse collapse justify-content-between"></div>
-		<ul>
-			<a style="background-color:green; color:white;" id="pagar" type="button" class="btn button-checkout"
-				rola="button" onclick="pay()">Pagar</a>
-		</ul>
 	</nav>
 	<!--Carrusel de imagenes-->
-	<div class="container mt-2 mb-4">
+	<div class="container mt-2 mb-4 bg-dark">
         <div id="carouselHome" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="0" class="active"
@@ -111,12 +76,12 @@
     </div>
 	&nbsp
 	<!--Tarjetas-->
-	<div class="container-fluid" style="background-color:white ">
+	<div class="container-fluid bg-dark">
 		<div class="row justify-content-center">
 			<div class="col-sm-3">
-				<div class="card">
+				<div class="card" style="background-color: antiquewhite;">
 					<div class="card-body">
-						<img src="../AccesorioGatos/Accesorio_1.jpg" class="card-img-top" alt="tarjeta_1">
+						<img src="{% static 'core/img/productos/Accesorio_1.jpg' %}" class="card-img-top" alt="tarjeta_1">
 						<h5 class="card-title">Collar</h5>
 						<p class="card-text">
 						<ul>
@@ -141,9 +106,9 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<div class="card ">
+				<div class="card" style="background-color: antiquewhite;">
 					<div class="card-body">
-						<img src="../AccesorioGatos/Accesorio_2.png" class="card-img-top" alt="tarjeta_2">
+						<img src="{% static 'core/img/productos/Accesorio_2.png' %}" class="card-img-top" alt="tarjeta_2">
 						<h5 class="card-title">Platos Anti-deslisante</h5>
 						<p class="card-text">
 						<ul>
@@ -170,9 +135,9 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<div class="card ">
+				<div class="card" style="background-color: antiquewhite;">
 					<div class="card-body">
-						<img src="../AccesorioGatos/Accesorio_3.png" class="card-img-top" alt="tarjeta_2">
+						<img src="{% static 'core/img/productos/Accesorio_3.png' %}" class="card-img-top" alt="tarjeta_2">
 						<h5 class="card-title">Caja Transportadora</h5>
 						<p class="card-text">
 						<ul>
@@ -200,35 +165,20 @@
 		</div>
 	</div>
 	&nbsp
-	<div class="container-fluid">
-		<div class="row" style="color: white;">
-			<!-- Columnas-->
-			<div class="col" style="background-color:royalblue;">
-				<h3>Nuestra tienda:</h3>
-				<a style="background-color:green; color:white" type="button" class="btn" rola="button"
-					href="{% url 'informaciontienda' %}">Informacion de la Tienda</a>
-			</div>
-
-			<div class="col" style="background-color:royalblue;">
-				<h3>Mascotas:</h3>
-				<a style="background-color:green ; color:white;" type="button" class="btn" rola="button"
-					href="{% url 'accesoriosgatos' %}">Gatos</a>
-
-				<a style="background-color:green ; color:white;" type="button" class="btn" rola="button"
-					href="{% url 'accesoriosperros' %}">Perros</a>
-
-			</div>
-			<div class="col" style="background-color:royalblue;">
-				<h3>Subscribase a nuestras ofertas:</h3>
-				<h5>Ingrese su correo:</h5>
-				<input placeholder="pelu2@ejemplo.com" type="text" class="form-control"
-					aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-				<a style="background-color:green; color:white" type="button" class="btn" rola="button" href="#">Recibir
-					ofertas</a>
-			</div>
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <a class="btn btn-outline-danger" type="button" href="{% url 'informaciontienda' %}">Nuestra Tienda</a>
+		  <a class="btn btn-outline-light" type="button" href="{% url 'accesoriosgatos' %}">Gatos</a>
+		  <a class="btn btn-outline-light" type="button" href="{% url 'accesoriosperros' %}">Perros</a>
+		  <form class="d-flex" role="search">
+			<input class="form-control me-2" type="search" placeholder="Subscribir a ofertas" aria-label="Search">
+			<button class="btn btn-success" type="submit">Subscribirse</button>
+		  </form>
+		  
 		</div>
-	</div>
-	</div>
+		
+	  </nav>
+	<h5 align ="center">Copyright 2022</h5>
 	<script src="{% static 'core/js/tienda.js' %}"></script>
 	<script src="{% static 'core/js/clima.js' %}"></script>
 
