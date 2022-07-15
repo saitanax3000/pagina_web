@@ -166,17 +166,20 @@
 	</div>
 	&nbsp
 	<nav class="navbar navbar-dark bg-dark">
-		<div class="container-fluid">
+		<div class="container">
+			<ul>
 		  <a class="btn btn-outline-danger" type="button" href="{% url 'informaciontienda' %}">Nuestra Tienda</a>
-		  <a class="btn btn-outline-light" type="button" href="{% url 'accesoriosgatos' %}">Gatos</a>
-		  <a class="btn btn-outline-light" type="button" href="{% url 'accesoriosperros' %}">Perros</a>
+			</ul>
+			<div class="" style="color: white;">
+				<p align="center">Metodos de pago</p>
+			  	<img src="{% static 'core/img/productos/medios_de_pago.png' %}" alt="">
+			</div>
 		  <form class="d-flex" role="search">
 			<input class="form-control me-2" type="search" placeholder="Subscribir a ofertas" aria-label="Search">
 			<button class="btn btn-success" type="submit">Subscribirse</button>
 		  </form>
-		  
 		</div>
-	</nav>
+	  </nav>
 	<h5 align ="center">Copyright 2022</h5>
 	<script src="{% static 'core/js/tienda.js' %}"></script>
 	<script src="{% static 'core/js/clima.js' %}"></script>
