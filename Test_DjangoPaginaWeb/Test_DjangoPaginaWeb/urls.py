@@ -20,6 +20,7 @@ from django.conf import settings
 from crud import views as crud
 
 urlpatterns = [
+    path('api/',include('api.urls')),
     path('admin/', admin.site.urls),
     path('crud/',include('crud.urls')),
     path('', include('core.urls')),
