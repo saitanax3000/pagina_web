@@ -2,15 +2,12 @@
 from django.shortcuts import render,redirect,reverse
 from .models import *
 from .forms import *
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
 def product_list(request):
     context = {'productos':Producto.objects.all()}
     return render(request,'crud/product_list.html',context)
 
-@login_required
 def product_new(request):
     if request.method == "POST":
         form = ProductoForm(request.POST,request.FILES)
@@ -46,7 +43,6 @@ def product_detail(request,product_id):
     except:
         return redirect(reverse('product-list') + "?FAIL")
 
-@login_required
 def product_edit(request,product_id):
     try:
         producto = Producto.objects.get(idProducto=product_id)

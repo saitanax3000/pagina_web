@@ -44,4 +44,5 @@ class Migration(migrations.Migration):
                 'ordering': ['idProducto'],
             },
         ),
+        
     ]
